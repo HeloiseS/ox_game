@@ -27,10 +27,22 @@ while winner is None:   # Loop until someone wins
         winner = 'no one'
         break
 
-    # Ask the player to pick a square.
-    pick = raw_input(player+" pick a square: ")
-    # TODO: What if the square is already taken?
-    # TODO: What if they pick a number that is not on the grid?
+    valid = False
+    while not valid:
+        # Ask the player to pick a square.
+        pick = raw_input(player+" pick a square: ")
+        
+        # Test: is the loc already taken
+        try:
+            pick = int(pick)
+            
+            
+            valid = True
+        except ValueError:
+            print "You must pick a number"
+        
+        
+        
 
     # Change the value of the square in the dictionary to either 'x' or 'o' (depending on who's playing).
     grid_dic[pick] = player
